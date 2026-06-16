@@ -28,16 +28,20 @@ pipeline {
         }
     }
     post {
-        always {
-            echo 'Publishing Playwright report...'
-        }
-
-        success {
-            echo 'Tests PASSED ✅'
-        }
-
-        failure {
-            echo 'Tests FAILED ❌'
-        }
+    always {
+        publishHTML (target: [
+            reportDir: 'playwright-report',
+            reportFiles: 'index.html',
+            reportName: 'Playwright Report'
+        ])
     }
+
+    success {
+        echo 'Tests Passed 🎉'
+    }
+
+    failure {
+        echo 'Tests Failed ❌'
+    }
+}
 }
