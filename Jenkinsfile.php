@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/gautamkunjadiya99/Testqa.git'
+                git branch: 'Testing', url: 'https://github.com/gautamkunjadiya99/Testqa.git'
             }
         }
         stage('Install Dependencies') {
@@ -19,6 +19,11 @@ pipeline {
         stage('Run Playwright Tests') {
             steps {
                 sh 'npx playwright test'
+            }
+        }
+        stage('Test Execution') {
+             steps {
+                  sh 'npx playwright test --reporter=html'
             }
         }
     }
