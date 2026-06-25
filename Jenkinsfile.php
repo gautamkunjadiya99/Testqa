@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    tools{
+        jdk 'JDK25'
+        nodejs 'node24'
+    }
     stages {
         stage('Checkout Code') {
             steps {
@@ -8,7 +12,9 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
+                sh 'node -v'
                 sh 'npm install'
+                sh 'npm run build'
             }
         }
         stage('Install Playwright Browsers') {
