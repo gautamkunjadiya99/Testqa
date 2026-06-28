@@ -1,0 +1,16 @@
+name: Greetings
+on:
+
+  push:
+    branches: [ main, master, Testing ]
+  pull_request:
+    branches: [ main, master, Testing ]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+        - name: "Great User"
+        run: echo "Hello World!"
+
+      
