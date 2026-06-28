@@ -10,7 +10,7 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-        - name: "Great User"
+      - name: "Great User"
         run: echo "Hello World!"
 
       
